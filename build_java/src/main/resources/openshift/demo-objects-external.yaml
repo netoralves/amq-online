@@ -1,3 +1,15 @@
+apiVersion: enmasse.io/v1beta1
+kind: AddressSpace
+metadata:
+  labels:
+    addressSpaceType: standard
+    type: address-space
+  name: demo-standard-space
+spec:
+  type: standard
+  plan: standard-small
+  authenticationService:
+    name: standard-authservice
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
@@ -16,9 +28,8 @@ apiVersion: user.enmasse.io/v1beta1
 kind: MessagingUser
 metadata:
   name: demo-standard-space.demo-user
-  namespace: amqp-demo
 spec:
-  username: demo-user
+  username: demo-user2
   authentication:
     type: password
     password: cGFzc3dvcmQ= # Base64 encode of 'password'
@@ -41,7 +52,6 @@ metadata:
   labels:
     addressType: topic
   name: demo-standard-space.mytopic
-  namespace: amqp-demo
 spec:
   address: mytopic
   type: topic
@@ -54,7 +64,6 @@ metadata:
   labels:
     addressType: subscription
   name: demo-standard-space.mysub
-  namespace: amqp-demo
 spec:
   address: mysub
   type: subscription

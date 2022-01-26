@@ -1,0 +1,80 @@
+apiVersion: enmasse.io/v1beta1
+kind: AddressSpace
+metadata:
+  labels:
+    addressSpaceType: standard
+    type: address-space
+  name: demo-standard-space
+spec:
+  type: standard
+  plan: standard-small
+  authenticationService:
+    name: standard-authservice
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

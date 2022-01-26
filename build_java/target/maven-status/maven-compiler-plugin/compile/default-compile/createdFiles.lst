@@ -1,0 +1,4 @@
+META-INF/spring-configuration-metadata.json
+com/redhat/demo/rahmed/AMQPConfiguration.class
+com/redhat/demo/rahmed/AMQPDemo.class
+com/redhat/demo/rahmed/Application.class

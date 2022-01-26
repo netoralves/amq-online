@@ -1,0 +1,93 @@
+{
+  "groups": [
+    {
+      "name": "address",
+      "type": "com.redhat.demo.rahmed.AMQPDemo",
+      "sourceType": "com.redhat.demo.rahmed.AMQPDemo"
+    },
+    {
+      "name": "amqp",
+      "type": "com.redhat.demo.rahmed.AMQPConfiguration",
+      "sourceType": "com.redhat.demo.rahmed.AMQPConfiguration"
+    }
+  ],
+  "properties": [
+    {
+      "name": "address.context",
+      "type": "org.apache.camel.model.ModelCamelContext",
+      "sourceType": "com.redhat.demo.rahmed.AMQPDemo"
+    },
+    {
+      "name": "address.error-handler-builder",
+      "type": "org.apache.camel.builder.ErrorHandlerBuilder",
+      "sourceType": "com.redhat.demo.rahmed.AMQPDemo"
+    },
+    {
+      "name": "address.queue-name",
+      "type": "java.lang.String",
+      "sourceType": "com.redhat.demo.rahmed.AMQPDemo"
+    },
+    {
+      "name": "address.rest-collection",
+      "type": "org.apache.camel.model.rest.RestsDefinition",
+      "sourceType": "com.redhat.demo.rahmed.AMQPDemo"
+    },
+    {
+      "name": "address.rest-configurations",
+      "type": "java.util.Map<java.lang.String,org.apache.camel.model.rest.RestConfigurationDefinition>",
+      "sourceType": "com.redhat.demo.rahmed.AMQPDemo"
+    },
+    {
+      "name": "address.route-collection",
+      "type": "org.apache.camel.model.RoutesDefinition",
+      "sourceType": "com.redhat.demo.rahmed.AMQPDemo"
+    },
+    {
+      "name": "address.subcsribtion-name",
+      "type": "java.lang.String",
+      "sourceType": "com.redhat.demo.rahmed.AMQPDemo"
+    },
+    {
+      "name": "address.topic-name",
+      "type": "java.lang.String",
+      "sourceType": "com.redhat.demo.rahmed.AMQPDemo"
+    },
+    {
+      "name": "amqp.parameters",
+      "type": "java.lang.String",
+      "description": "AMQ parameters",
+      "sourceType": "com.redhat.demo.rahmed.AMQPConfiguration"
+    },
+    {
+      "name": "amqp.password",
+      "type": "java.lang.String",
+      "description": "AMQ password",
+      "sourceType": "com.redhat.demo.rahmed.AMQPConfiguration"
+    },
+    {
+      "name": "amqp.port",
+      "type": "java.lang.Integer",
+      "description": "AMQ service port",
+      "sourceType": "com.redhat.demo.rahmed.AMQPConfiguration"
+    },
+    {
+      "name": "amqp.service-name",
+      "type": "java.lang.String",
+      "description": "AMQ service name",
+      "sourceType": "com.redhat.demo.rahmed.AMQPConfiguration"
+    },
+    {
+      "name": "amqp.service-port",
+      "type": "java.lang.String",
+      "description": "AMQ service port",
+      "sourceType": "com.redhat.demo.rahmed.AMQPConfiguration"
+    },
+    {
+      "name": "amqp.username",
+      "type": "java.lang.String",
+      "description": "AMQ username",
+      "sourceType": "com.redhat.demo.rahmed.AMQPConfiguration"
+    }
+  ],
+  "hints": []
+}
