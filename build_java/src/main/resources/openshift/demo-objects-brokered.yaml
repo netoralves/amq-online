@@ -4,12 +4,37 @@ metadata:
   labels:
     addressSpaceType: standard
     type: address-space
-  name: demo-standard-space
+  name: demo-brokered-space
 spec:
-  type: standard
-  plan: standard-small
+  type: brokered
+  plan: brokered-single-broker
   authenticationService:
     name: standard-authservice
+  endpoints:
+  - name: messaging
+    service: messaging
+    expose:
+      type: route
+      routeServicePort: amqps
+      routeTlsTermination: passthrough
+    exports:
+    - kind: ConfigMap
+      name: spring-boot-camel-amq-config-brokered
+    cert:
+      provider: openshift
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: rbac
+rules:
+  - apiGroups: [ "" ]
+    resources: [ "configmaps" ]
+    verbs: [ "create" ]
+  - apiGroups: [ "" ]
+    resources: [ "configmaps" ]
+    resourceNames: [ "spring-boot-camel-amq-config-brokered" ]
+    verbs: [ "get", "update", "patch" ]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
@@ -27,9 +52,9 @@ subjects:
 apiVersion: user.enmasse.io/v1beta1
 kind: MessagingUser
 metadata:
-  name: demo-standard-space.demo-user
+  name: demo-brokered-space.demo-user
 spec:
-  username: demo-user2
+  username: demo-user
   authentication:
     type: password
     password: cGFzc3dvcmQ= # Base64 encode of 'password'
@@ -46,36 +71,11 @@ spec:
       operations:
         - view
 ---
-kind: Address
-apiVersion: enmasse.io/v1beta1
-metadata:
-  labels:
-    addressType: topic
-  name: demo-standard-space.mytopic
-spec:
-  address: mytopic
-  type: topic
-  plan: standard-small-topic
-  forwarders: []
----
-kind: Address
-apiVersion: enmasse.io/v1beta1
-metadata:
-  labels:
-    addressType: subscription
-  name: demo-standard-space.mysub
-spec:
-  address: mysub
-  type: subscription
-  plan: standard-small-subscription
-  topic: mytopic
-  forwarders: []
----
 apiVersion: enmasse.io/v1beta1
 kind: Address
 metadata:
-  name: demo-standard-space.myqueue-standard
+  name: demo-brokered-space.myqueue-brokered
 spec:
-  address: myqueue-standard
+  address: myqueue-brokered
   plan: standard-small-queue
   type: queue
